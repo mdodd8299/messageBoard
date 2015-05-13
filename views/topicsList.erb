@@ -1,0 +1,53 @@
+<div class = "block">
+  <ul class="nav nav-tabs nav-justified" style = "font-size: 20px">
+    <li role="presentation" class = "active"><a href="/topics">All Threads</a></li>
+    <li role="presentation" class = "unActive"><a href="/users">All Users</a></li>
+    <li role="presentation" class = "unActive"><a href="/signOut"><i class="fa fa-lg fa-sign-out"></i> Sign Out</a></li>
+  </ul>
+  <div class = "threadListTitle">Apple Forum</div>
+  <div class = "threadListDes">Welcome "<%= @user.username %>" to the ultimate Apple Forum who's goal is to help you with all your needs and questions to do with Apple. Please create any thread about any topic, and other users will be answer your question. Have fun and make sure to contribute to any threads that you may know the answer to.</div>
+  <form class="navbar-form navbar-left" method="post" action="/user/search" style = "margin-left: 375px; margin-right: 375px">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search a User" name="username" style = "width: 400px">
+    </div>
+    <button type="submit" class="btn btn-primary"><i class="fa fa-lg fa-search"></i></button>
+  </form>
+  <table class = "table" style = "margin: 3.5%; width: 93%; background-color: rgba(255, 255, 255, 0.7); border-radius: 10px; padding: 10px">
+    <tr>
+      <th style = "width: 250px">Thread Name</th>
+      <th style = "width: 500px">Thread Description</th>
+      <th style = "width: 100px"># of Posts</th>
+      <th></th>
+    </tr>
+    <% position =  0 %>
+    <% @topics.each do |topic| %>
+        <tr>
+          <td><a href="/thread/<%= topic.id %>"><%= topic.name %></a></td>
+          <td style = "color: gray;"><%= topic.des %></td>
+          <td><%= @number[position.to_i]%></td>
+          <td style="width: 50px">
+            <% if @number[position.to_i] == 0%>
+                <form method="post" action="/thread/<%= topic.id %>/delete">
+                  <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+            <% end %>
+          </td>
+          <% position += 1 %>
+        </tr>
+    <% end %>
+  </table>
+  <div class = "createNewThreadWrap"><div id  = 'createNT' class = "createNewThread" style = "margin-bottom: 20px">Create a new Thread</div></div>
+  <!-- Once Create is activated
+  <form method = 'post' action = '/thread/create' style = 'font-size: 20px'>
+    <div class='form-group' style = 'margin: 7px'>
+      <label for = 'name'>Name: </label>
+      <input class='form-control' type = 'text' name = 'name' placeholder='Ex: iPhoto Help' style = 'width: 300px'>
+    </div>
+    <div class='form-group' style = 'margin: 7px'>
+      <label for = 'des'>Description: </label>
+      <input class='form-control' type = 'text' name = 'des' style = 'width: 500px' placeholder = 'Please provide a short description for your thread.'>
+    </div>
+    <input type='submit' value='Create Thread!' class = 'btn btn-primary'>
+  </form>
+  -->
+</div>

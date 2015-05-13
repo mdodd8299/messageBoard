@@ -1,0 +1,16 @@
+<div class = "block">
+  <a href="/users" class="btn btn-primary" style="position: absolute; right: 30px; margin: 20px; height: 60px; width: 100px; font-size: 30px">Back</a>
+  <div class = "postThreadTitle"><%= @u.username %></div>
+  <div class = "postThreadDes">See "<%= @u.username %>'s" posts.</div>
+  <div style = 'margin: 20px; background-color: rgba(255, 255, 255, 0.7); border-radius: 10px; padding: 10px'>
+    <% @posts.each do |post| %>
+        <hr>
+        <div class = "postUsername"><%= @u.username %></div>
+        <div style="margin-left: 10px; margin-bottom: 10px"><%= post.time.strftime('%I:%M,  %b %d, %Y') %></div>
+        <div style = "font-size: 16px; word-wrap: break-word;"><%= post.content %></div>
+    <% end %>
+  </div>
+
+  <div>&nbsp&nbsp&nbsp</div>
+
+</div>

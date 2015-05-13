@@ -1,0 +1,18 @@
+<div class = "block">
+  <a href="/thread/<%= @threadID %>" class="btn btn-primary" style="position: absolute; right: 30px; margin: 20px; height: 60px; width: 100px; font-size: 30px">Back</a>
+  <div>&nbsp&nbsp&nbsp</div>
+  <div>&nbsp&nbsp&nbsp</div>
+  <div>&nbsp&nbsp&nbsp</div>
+  <div>&nbsp&nbsp&nbsp</div>
+
+  <form method="post" action="/thread/<%= @threadID %>/post/<%= @post.id %>/update" class="form-inline">
+    <div class="form-group">
+      <label for="name" style = "font-size: 30px; margin: 20px; margin-bottom: 5px">Content:</label><br>
+      <textarea class="form-control" id="postContent" name="content" type = "text" rows = 5 style = "width: 1200px"><%= @post.content %></textarea>
+    </div>
+    <br>
+    <div class="form-group">
+      <input style = "margin: 15px" type="submit" value="Update Post" class="form-control btn-success">
+    </div>
+  </form>
+</div>

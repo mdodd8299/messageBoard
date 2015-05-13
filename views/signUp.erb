@@ -1,0 +1,21 @@
+<div class = "middle-Wrap">
+  <div class = "middle">
+    <div id = 'forFade'>
+      <h2 id= "fadeHalf" class = "signUpTitle">Apple Forum</h2>
+      <div style="font-size: 18px" id = 'fade1'>Please input a username and </div>
+      <div style="font-size: 18px" id = 'fade2'>password to Sign Up!</div>
+      <form method='post' action='/user/create' id = 'fade3'>
+
+        <label for = 'username'>Username: </label>
+        <input type = 'text' name = 'username' class = 'SignUpInput' id = 'signUpInput1'><br>
+        <label for = 'password'>Password:</label>
+        <input type = 'password' name='password' class = 'SignUpInput' id = 'signUpInput2'><br>
+        <label for = 'conPassword'>Confirm Password:</label>
+        <input type = 'password' name='conPassword' class = 'SignUpInput' id = 'signUpInput3'><br>
+        <div class = "error"></div>
+        <input type='submit' value = 'Sign Up' class="btn btn-info signUpSubmit" id = 'autoDirect'style = 'margin: 5px'>
+      </form>
+      <div class = 'already' id = 'fade4'><a style = 'font-size: 15px'>Already a User, Sign in Here!!</a></div>
+    </div>
+  </div>
+</div>
