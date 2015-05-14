@@ -2,10 +2,10 @@
   <a href="/topics" class="btn btn-primary" style="position: absolute; right: 30px; margin: 20px; height: 60px; width: 100px; font-size: 30px">Back</a>
   <div class = "postThreadTitle"><%= @topic.name %></div>
   <div class = "postThreadDes"><%= @topic.des %></div>
-  <form id = "postForm" class = "formTemplate" method = 'post' action = '/post/create/<%= @topic.id %>'>
+  <form id = "postForm" class = "formTemplate" method = 'post' action = '/post/create/<%= @topic.id %>' style = "">
     <div class="form-group">
       <label for = "content">Post:</label>
-      <textarea class="form-control" id="postContent" name="content" type = "text" rows = 5></textarea>
+      <textarea class="form-control" id="postContent" name="content" type = "text" rows = 5 ></textarea>
     </div>
     <input type='submit' value='Create New Post' class = 'btn btn-primary'>
   </form>
@@ -17,7 +17,11 @@
         <hr>
         <div class = "postUsername"><%= @u.username %></div>
         <div style="margin-left: 10px"><%= post.time.strftime('%I:%M,  %b %d, %Y') %></div>
-        <a href="/thread/<%= @topic.id %>/post/<%= post.id %>/edit" class="btn btn-warning" style="margin: 10px">Edit</a><a href="/thread/<%= @topic.id %>/post/<%= post.id %>/delete" class = "btn btn-danger">Delete</a>
+
+        <% if session[:id] == post.user_id %>
+            <a href="/thread/<%= @topic.id %>/post/<%= post.id %>/edit" class="btn btn-warning" style="margin: 10px">Edit</a><a href="/thread/<%= @topic.id %>/post/<%= post.id %>/delete" class = "btn btn-danger">Delete</a>
+        <% end %>
+
         <div style = "font-size: 16px; word-wrap: break-word;"><%= post.content %></div>
     <% end %>
   </div>

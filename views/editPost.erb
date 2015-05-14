@@ -8,7 +8,7 @@
   <form method="post" action="/thread/<%= @threadID %>/post/<%= @post.id %>/update" class="form-inline">
     <div class="form-group">
       <label for="name" style = "font-size: 30px; margin: 20px; margin-bottom: 5px">Content:</label><br>
-      <textarea class="form-control" id="postContent" name="content" type = "text" rows = 5 style = "width: 1200px"><%= @post.content %></textarea>
+      <textarea class="form-control" id="postContent" name="newContent" type = "text" rows = 5 style = "width: 1200px"><%= @post.content %></textarea>
     </div>
     <br>
     <div class="form-group">

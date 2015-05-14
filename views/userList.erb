@@ -24,7 +24,8 @@
     <% @users.each do |user| %>
         <tr>
           <td><div><%= user.username %></div></td>
-          <td>#</td>
+          <% postForUser = Post.where(:user_id => user.id) %>
+          <td><%= postForUser.count %></td>
           <td><%= user.date.strftime('%b %d, %Y')%></td>
           <td><a href = "/users/<%= user.id %>" class = "btn btn-success" style = "width: 400px">See Posts</a></td>
         </tr>

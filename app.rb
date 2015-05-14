@@ -49,14 +49,19 @@ end
 
 post '/user/signIn' do
   u = User.first(:username => params[:username])
-  passUnBCrypt = u.password
 
-  if u && BCrypt::Password.new(passUnBCrypt) == params[:password]
-    session[:id] = u.id
 
-    redirect '/topics'
+  if u
+    passUnBCrypt = u.password
+    if BCrypt::Password.new(passUnBCrypt) == params[:password]
+      session[:id] = u.id
+
+      redirect '/topics'
+    else
+      redirect 'signUp'
+    end
   else
-    redirect 'signIn'
+    redirect 'signUp'
   end
 end
 
@@ -153,6 +158,7 @@ end
 
 post '/thread/:t_id/post/:id/update' do
   p = Post.first(:id => params[:id])
+  puts params[:newContent]
   p.content = params[:newContent]
   p.save
 

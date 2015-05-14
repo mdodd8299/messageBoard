@@ -16,7 +16,7 @@ function create() {
 }
 
 function create2() {
-    $(".createNewPost").animate({ "height": "250px", "width": "100%", "text-align": "left"}, "slow" );
+    $(".createNewPost").animate({ "height": "250px", "width": "93%", "text-align": "left"}, "slow" );
     form = $(".formTemplate").clone()
     form.removeClass( "formTemplate" ).addClass( "formShowTemplate" );
     $(".createNewPost").append(form)
